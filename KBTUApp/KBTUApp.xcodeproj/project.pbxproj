@@ -12,6 +12,11 @@
 		CE606FC225EE160F00E52B8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE606FC025EE160F00E52B8E /* Main.storyboard */; };
 		CE606FC425EE161200E52B8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE606FC325EE161200E52B8E /* Assets.xcassets */; };
 		CE606FC725EE161200E52B8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE606FC525EE161200E52B8E /* LaunchScreen.storyboard */; };
+		CE606FCF25EE1E1C00E52B8E /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE606FCE25EE1E1C00E52B8E /* MenuVC.swift */; };
+		CE606FD125EE227000E52B8E /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE606FD025EE227000E52B8E /* MainVC.swift */; };
+		CE7876F825F36B8600694A5A /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7876F625F36B8600694A5A /* NewsCell.swift */; };
+		CE7876F925F36B8600694A5A /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7876F725F36B8600694A5A /* NewsCell.xib */; };
+		CE7876FB25F36C9C00694A5A /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7876FA25F36C9C00694A5A /* NewsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		CE606FC325EE161200E52B8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE606FC625EE161200E52B8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE606FC825EE161200E52B8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE606FCE25EE1E1C00E52B8E /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		CE606FD025EE227000E52B8E /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		CE7876F625F36B8600694A5A /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		CE7876F725F36B8600694A5A /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		CE7876FA25F36C9C00694A5A /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,27 @@
 		CE606FBB25EE160F00E52B8E /* KBTUApp */ = {
 			isa = PBXGroup;
 			children = (
+				CE7876F325F36B3900694A5A /* News */,
 				CE606FBC25EE160F00E52B8E /* AppDelegate.swift */,
 				CE606FBE25EE160F00E52B8E /* ViewController.swift */,
 				CE606FC025EE160F00E52B8E /* Main.storyboard */,
 				CE606FC325EE161200E52B8E /* Assets.xcassets */,
 				CE606FC525EE161200E52B8E /* LaunchScreen.storyboard */,
 				CE606FC825EE161200E52B8E /* Info.plist */,
+				CE606FCE25EE1E1C00E52B8E /* MenuVC.swift */,
+				CE606FD025EE227000E52B8E /* MainVC.swift */,
 			);
 			path = KBTUApp;
+			sourceTree = "<group>";
+		};
+		CE7876F325F36B3900694A5A /* News */ = {
+			isa = PBXGroup;
+			children = (
+				CE7876F625F36B8600694A5A /* NewsCell.swift */,
+				CE7876F725F36B8600694A5A /* NewsCell.xib */,
+				CE7876FA25F36C9C00694A5A /* NewsVC.swift */,
+			);
+			path = News;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +147,7 @@
 			files = (
 				CE606FC725EE161200E52B8E /* LaunchScreen.storyboard in Resources */,
 				CE606FC425EE161200E52B8E /* Assets.xcassets in Resources */,
+				CE7876F925F36B8600694A5A /* NewsCell.xib in Resources */,
 				CE606FC225EE160F00E52B8E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,7 +160,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE606FBF25EE160F00E52B8E /* ViewController.swift in Sources */,
+				CE606FD125EE227000E52B8E /* MainVC.swift in Sources */,
 				CE606FBD25EE160F00E52B8E /* AppDelegate.swift in Sources */,
+				CE606FCF25EE1E1C00E52B8E /* MenuVC.swift in Sources */,
+				CE7876F825F36B8600694A5A /* NewsCell.swift in Sources */,
+				CE7876FB25F36C9C00694A5A /* NewsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
