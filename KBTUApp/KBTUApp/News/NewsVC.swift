@@ -10,8 +10,7 @@ import UIKit
 
 class NewsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var images:[String] = ["ded.png","meetingRector.jpg","olimp2021.jpg","stipendialnayaPrograma.png","bestTeacher.jpg"]
-    var labels:[String] = ["СУЛЕЙМЕНОВ ЭСЕН НУРГАЛИЕВИЧ: ПОЧЕТНОЕ ЗВАНИЕ «ОСНОВАТЕЛЬ НАУЧНОГО НАПРАВЛЕНИЯ»","On February 6, 2021, was held the first face-to-face meeting of the KBTU Rector with the Board of the KBTU ALUMNI Association.","Dear students and college graduates! We are pleased to announce to you the holding of the KBTU","Scientific and educational foundation named after Academician Shakhmardan Yessenov","Teachers of KBTU Isakhov Asylbek Abdiashimovich and Kulpeshov Beibut Shaiykovich became the holders of the title The best teacher of the"]
+  
     @IBOutlet weak var newsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +33,20 @@ class NewsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let imageCrop = currentImage?.getCropRatio()
         return tableView.frame.width / imageCrop!
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "newsDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "newsDetails"){
+            let destination = segue.destination as! NewsDetailVC
+            let index = (newsTableView.indexPathForSelectedRow?.row)!
+            
+            destination.image = UIImage(named: images[index])
+            destination.text = text[index]
+            destination.titleText = labels[index]
+        }
+    }
     
 }
 extension UIImage{
@@ -42,3 +55,4 @@ extension UIImage{
         return widthRatio
     }
 }
+
