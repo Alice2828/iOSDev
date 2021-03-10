@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+var selectedImage: String?
+var selectedText: String?
+var selectedTextMore: String?
 class FacultiesVC: UIViewController {
     
     @IBOutlet weak var facultiesCollectionView: UICollectionView!
@@ -54,19 +56,30 @@ extension FacultiesVC:UICollectionViewDelegate,UICollectionViewDataSource{
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         
-        self.performSegue(withIdentifier: "facultyDetails", sender: self)
+        let cell = collectionView.cellForItem(at: indexPath) as! FacultyCell
+        cell.facultyImageView.layer.borderColor = UIColor.green.cgColor    
+        cell.facultyImageView.layer.borderWidth = 4
+        selectedImage = deans[indexPath.row]
+        selectedText = deanTexts[indexPath.row]
+        selectedTextMore = facultyMoreText[indexPath.row]
+        performSegue(withIdentifier: "facultyDetails", sender:self)
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+         let cell = collectionView.cellForItem(at: indexPath) as! FacultyCell
+        cell.facultyImageView.layer.borderColor = UIColor.clear.cgColor
+        cell.facultyImageView.layer.borderWidth = 4
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "facultyDetails"){
-            if let cell = sender as? UICollectionViewCell,
-                let index = facultiesCollectionView.indexPath(for: cell) {
-                
-                let destination = segue.destination as! FacultyDetailsVC
-                destination.image = UIImage(named: images[index.row])
-                destination.text = text[index.row]
+            if  let destination = segue.destination as? FacultyDetailVC{
+                destination.image = UIImage(named: selectedImage!)
+                destination.text = selectedText
+                destination.textMore = selectedTextMore
             }
         }
     }

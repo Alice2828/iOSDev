@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE49C4B825F796EE007B8060 /* FacultyDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49C4B725F796EE007B8060 /* FacultyDetailsVC.swift */; };
+		CE49C4B825F796EE007B8060 /* FacultyDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49C4B725F796EE007B8060 /* FacultyDetailVC.swift */; };
 		CE606FBD25EE160F00E52B8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE606FBC25EE160F00E52B8E /* AppDelegate.swift */; };
 		CE606FBF25EE160F00E52B8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE606FBE25EE160F00E52B8E /* ViewController.swift */; };
 		CE606FC225EE160F00E52B8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE606FC025EE160F00E52B8E /* Main.storyboard */; };
@@ -26,7 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE49C4B725F796EE007B8060 /* FacultyDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyDetailsVC.swift; sourceTree = "<group>"; };
+		CE49C4B725F796EE007B8060 /* FacultyDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyDetailVC.swift; sourceTree = "<group>"; };
 		CE606FB925EE160F00E52B8E /* KBTUApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KBTUApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE606FBC25EE160F00E52B8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE606FBE25EE160F00E52B8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 				CE755AD425F7543A00C214C7 /* FacultiesVC.swift */,
 				CE755AD625F75A9C00C214C7 /* FacultyCell.swift */,
 				CE755AD725F75A9C00C214C7 /* FacultyCell.xib */,
-				CE49C4B725F796EE007B8060 /* FacultyDetailsVC.swift */,
+				CE49C4B725F796EE007B8060 /* FacultyDetailVC.swift */,
 			);
 			path = Faculties;
 			sourceTree = "<group>";
@@ -201,7 +201,7 @@
 				CE606FBD25EE160F00E52B8E /* AppDelegate.swift in Sources */,
 				CE755AD525F7543A00C214C7 /* FacultiesVC.swift in Sources */,
 				CE606FCF25EE1E1C00E52B8E /* MenuVC.swift in Sources */,
-				CE49C4B825F796EE007B8060 /* FacultyDetailsVC.swift in Sources */,
+				CE49C4B825F796EE007B8060 /* FacultyDetailVC.swift in Sources */,
 				CE7876F825F36B8600694A5A /* NewsCell.swift in Sources */,
 				CE7876FB25F36C9C00694A5A /* NewsVC.swift in Sources */,
 				CE755AD225F7449100C214C7 /* Data.swift in Sources */,
