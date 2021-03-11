@@ -16,13 +16,19 @@ class FacultyDetailVC: UIViewController {
     var image: UIImage?
     var text: String?
     var textMore: String?
+    var textTitle:String?
+    var faculty: Faculty?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = text
+        self.title = textTitle
         dekanImage.image = image
         textView.text = text
         textBottom.text = textMore
         textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 0)
         textBottom.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 0)
+    }
+  
+    @IBAction func addToFav(_ sender: UIButton) {
+        favorites.append(faculty!)
     }
 }
