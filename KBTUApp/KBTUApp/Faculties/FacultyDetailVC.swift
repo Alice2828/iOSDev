@@ -31,4 +31,5 @@ class FacultyDetailVC: UIViewController {
     @IBAction func addToFav(_ sender: UIButton) {
         favorites.append(faculty!)
     }
+    
 }

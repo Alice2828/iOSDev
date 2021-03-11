@@ -59,6 +59,7 @@ class MainVC: UIViewController {
     @IBAction func menuTap(_ sender: UIBarButtonItem) {
         NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
     }
+
 }
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {

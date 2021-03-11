@@ -45,11 +45,15 @@ var faculties = [Faculty.init(icon: facultyIcons[0], title: facultiesTitle[0]),
                  Faculty.init(icon: facultyIcons[4], title: facultiesTitle[4]),
                  Faculty.init(icon: facultyIcons[5], title: facultiesTitle[5]),
                  Faculty.init(icon: facultyIcons[6], title: facultiesTitle[6]),
-Faculty.init(icon: facultyIcons[7], title: facultiesTitle[7]),
-Faculty.init(icon: facultyIcons[8], title: facultiesTitle[8])]
+                 Faculty.init(icon: facultyIcons[7], title: facultiesTitle[7]),
+                 Faculty.init(icon: facultyIcons[8], title: facultiesTitle[8])]
 
 
-class Faculty{
+class Faculty: Equatable{
+    static func == (lhs: Faculty, rhs: Faculty) -> Bool {
+        return lhs.facultyTitle==rhs.facultyTitle
+    }
+    
     var facultyIcon: String?
     var facultyTitle:String?
     

@@ -53,6 +53,7 @@ extension FacultiesVC:UICollectionViewDelegate,UICollectionViewDataSource{
             let newcell = (collectionView.dequeueReusableCell(withReuseIdentifier: "facultyCell", for: indexPath) as? FacultyCell)!
             newcell.facultyImageView.image = UIImage(named: facultyIcons[indexPath.row])
             newcell.facultyLabel.text = facultiesTitle[indexPath.row]
+           newcell.visibilityBtn(visibility: false)
             return newcell as UICollectionViewCell
         default:
             return cell

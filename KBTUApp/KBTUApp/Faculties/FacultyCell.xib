@@ -19,13 +19,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eeo-xo-msl">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="130"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="130" id="eUI-5c-03G"/>
+                            <constraint firstAttribute="height" constant="100" id="eUI-5c-03G"/>
                         </constraints>
                     </imageView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet," textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agG-xl-RUK">
-                        <rect key="frame" x="0.0" y="250" width="300" height="50"/>
+                        <rect key="frame" x="0.0" y="108" width="300" height="50"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="LCV-5N-0YX"/>
@@ -33,13 +33,26 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9L-Dw-pJE">
+                        <rect key="frame" x="135" y="166" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="1YW-Bp-dfM"/>
+                            <constraint firstAttribute="height" constant="30" id="dYP-Ih-D6T"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="delete"/>
+                        <connections>
+                            <action selector="deleteFromFav:" destination="gTV-IL-0wX" eventType="touchUpInside" id="EPg-3H-Bd2"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Eeo-xo-msl" secondAttribute="trailing" id="Gj6-6k-ZpZ"/>
+                <constraint firstItem="e9L-Dw-pJE" firstAttribute="top" secondItem="agG-xl-RUK" secondAttribute="bottom" constant="8" id="MUE-Og-mPO"/>
                 <constraint firstItem="agG-xl-RUK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NMU-4N-JoE"/>
+                <constraint firstItem="agG-xl-RUK" firstAttribute="top" secondItem="Eeo-xo-msl" secondAttribute="bottom" constant="8" id="aA7-ig-24a"/>
+                <constraint firstItem="e9L-Dw-pJE" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="bse-Fc-2YL"/>
                 <constraint firstItem="Eeo-xo-msl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cMY-3o-PfH"/>
-                <constraint firstAttribute="bottom" secondItem="agG-xl-RUK" secondAttribute="bottom" id="cW8-n4-FL4"/>
                 <constraint firstAttribute="trailing" secondItem="agG-xl-RUK" secondAttribute="trailing" id="nVe-wu-Spv"/>
                 <constraint firstItem="Eeo-xo-msl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="oHL-wp-ihv"/>
                 <constraint firstAttribute="width" secondItem="Eeo-xo-msl" secondAttribute="width" id="vdo-In-mzQ"/>
@@ -48,10 +61,14 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="421" height="388"/>
             <connections>
+                <outlet property="deleteBtn" destination="e9L-Dw-pJE" id="868-ui-8Zr"/>
                 <outlet property="facultyImageView" destination="Eeo-xo-msl" id="bCU-bu-D3u"/>
                 <outlet property="facultyLabel" destination="agG-xl-RUK" id="9OR-AB-zc7"/>
             </connections>
             <point key="canvasLocation" x="356.80000000000001" y="239.28035982008998"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="delete" width="512" height="512"/>
+    </resources>
 </document>

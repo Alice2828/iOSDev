@@ -9,14 +9,20 @@
 import UIKit
 
 class FacultyCell: UICollectionViewCell {
-
-    
+    @IBOutlet weak var deleteBtn: UIButton!
+    var delegateDelete: DeleteProtocol?
     @IBOutlet weak var facultyLabel: UITextView!
     @IBOutlet weak var facultyImageView: UIImageView!
-
+    var faculty: Faculty?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    @IBAction func deleteFromFav(_ sender: UIButton) {
+        delegateDelete?.deleteFav(item: faculty!)
+    }
+    func visibilityBtn(visibility : Bool){
+        self.deleteBtn.isHidden = !visibility
     }
 
 }

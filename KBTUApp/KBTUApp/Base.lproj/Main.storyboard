@@ -531,6 +531,7 @@ Every year since 2009 Kazakh-British Technical University (KBTU) has been ranked
                     </view>
                     <connections>
                         <outlet property="facultiesCV" destination="Owt-Ju-mdM" id="Ird-6L-JBi"/>
+                        <outlet property="favoritesCV" destination="Owt-Ju-mdM" id="W4L-gR-ZYq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lnd-Cj-j2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -639,17 +640,20 @@ Every year since 2009 Kazakh-British Technical University (KBTU) has been ranked
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="yeF-bj-gDe" kind="show" identifier="ShowRegistration" id="pkt-EL-a9r"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8SQ-R3-8h4">
                                 <rect key="frame" x="0.0" y="234" width="375" height="413"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <mutableString key="text">    If you want to enter our university, you can submit your documents today even without leaving your house!
+                                <string key="text">    If you want to enter our university, you can submit your documents today even without leaving your house!
 
    We prepared guidelines for filling in the Application form for a candidate and even if you haven’t taken your UNT test yet, you can submit the remaining documents now
 
    At present there is an integration of information systems of all the higher educational institutions with the electronic government portal Egov going on.
 
-   After the process of integration is over, you will receive a notification on your personal account at KBTU platform. In a certain period of time a representative of the Admissions</mutableString>
+   After the process of integration is over, you will receive a notification on your personal account at KBTU platform. In a certain period of time a representative of the Admissions</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -689,6 +693,40 @@ Every year since 2009 Kazakh-British Technical University (KBTU) has been ranked
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGk-Th-YUz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1460" y="859.52023988005999"/>
+        </scene>
+        <!--Online registration-->
+        <scene sceneID="VJz-rh-h26">
+            <objects>
+                <viewController title="Online registration" id="yeF-bj-gDe" customClass="OnlineRegisterVC" customModule="KBTUApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NVh-zf-gcB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHo-Bq-T0H">
+                                <rect key="frame" x="0.0" y="64" width="375" height="583"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NHo-Bq-T0H" firstAttribute="bottom" secondItem="37w-2a-Rto" secondAttribute="bottom" id="Dv1-e3-K8T"/>
+                            <constraint firstItem="NHo-Bq-T0H" firstAttribute="leading" secondItem="37w-2a-Rto" secondAttribute="leading" id="EbD-HF-Z1c"/>
+                            <constraint firstItem="NHo-Bq-T0H" firstAttribute="trailing" secondItem="37w-2a-Rto" secondAttribute="trailing" id="pOL-3S-fxS"/>
+                            <constraint firstItem="NHo-Bq-T0H" firstAttribute="top" secondItem="37w-2a-Rto" secondAttribute="top" id="vuP-V5-DX5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="37w-2a-Rto"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="NHo-Bq-T0H" id="iYO-ID-vUo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t6Z-Ik-kMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2333.5999999999999" y="868.51574212893559"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4tH-Vl-oyf">

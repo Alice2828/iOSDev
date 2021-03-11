@@ -25,6 +25,7 @@
 		CE7876F825F36B8600694A5A /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7876F625F36B8600694A5A /* NewsCell.swift */; };
 		CE7876F925F36B8600694A5A /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7876F725F36B8600694A5A /* NewsCell.xib */; };
 		CE7876FB25F36C9C00694A5A /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7876FA25F36C9C00694A5A /* NewsVC.swift */; };
+		CE85F8EA25FA169200D27140 /* OnlineRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85F8E925FA169200D27140 /* OnlineRegisterVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		CE7876F625F36B8600694A5A /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		CE7876F725F36B8600694A5A /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		CE7876FA25F36C9C00694A5A /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
+		CE85F8E925FA169200D27140 /* OnlineRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineRegisterVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		CE606FBB25EE160F00E52B8E /* KBTUApp */ = {
 			isa = PBXGroup;
 			children = (
+				CE85F8E825FA166B00D27140 /* OnlineRegister */,
 				CE59E12F25F9E2270072E7F2 /* Favorites */,
 				CE59E12C25F9D27B0072E7F2 /* AboutUs */,
 				CE755AD325F7541F00C214C7 /* Faculties */,
@@ -141,6 +144,14 @@
 				CE755ACE25F734A000C214C7 /* NewsDetailVC.swift */,
 			);
 			path = News;
+			sourceTree = "<group>";
+		};
+		CE85F8E825FA166B00D27140 /* OnlineRegister */ = {
+			isa = PBXGroup;
+			children = (
+				CE85F8E925FA169200D27140 /* OnlineRegisterVC.swift */,
+			);
+			path = OnlineRegister;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +237,7 @@
 				CE606FCF25EE1E1C00E52B8E /* MenuVC.swift in Sources */,
 				CE49C4B825F796EE007B8060 /* FacultyDetailVC.swift in Sources */,
 				CE7876F825F36B8600694A5A /* NewsCell.swift in Sources */,
+				CE85F8EA25FA169200D27140 /* OnlineRegisterVC.swift in Sources */,
 				CE7876FB25F36C9C00694A5A /* NewsVC.swift in Sources */,
 				CE59E12E25F9D2950072E7F2 /* AboutUsVC.swift in Sources */,
 				CE755AD225F7449100C214C7 /* Data.swift in Sources */,
