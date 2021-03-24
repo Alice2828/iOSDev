@@ -13,6 +13,7 @@
 		CE173F2E2609C6FB00D90877 /* MapApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE173F2C2609C6FB00D90877 /* MapApp.xcdatamodeld */; };
 		CE173F302609C6FF00D90877 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE173F2F2609C6FF00D90877 /* Assets.xcassets */; };
 		CE173F332609C6FF00D90877 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE173F312609C6FF00D90877 /* LaunchScreen.storyboard */; };
+		CED25380260B094900C82517 /* PlacesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2537F260B094900C82517 /* PlacesTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CE173F2F2609C6FF00D90877 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE173F322609C6FF00D90877 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE173F342609C6FF00D90877 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED2537F260B094900C82517 /* PlacesTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				CE173F312609C6FF00D90877 /* LaunchScreen.storyboard */,
 				CE173F342609C6FF00D90877 /* Info.plist */,
 				CE173F2C2609C6FB00D90877 /* MapApp.xcdatamodeld */,
+				CED2537F260B094900C82517 /* PlacesTableVC.swift */,
 			);
 			path = MapApp;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				CE173F2E2609C6FB00D90877 /* MapApp.xcdatamodeld in Sources */,
 				CE173F282609C6FB00D90877 /* ViewController.swift in Sources */,
 				CE173F262609C6FB00D90877 /* AppDelegate.swift in Sources */,
+				CED25380260B094900C82517 /* PlacesTableVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
