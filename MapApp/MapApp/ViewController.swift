@@ -10,7 +10,67 @@ import UIKit
 import MapKit
 import CoreData
 
-class ViewController: UIViewController, MKMapViewDelegate {
+var showingNow = 0
+
+class ViewController: UIViewController, MKMapViewDelegate, DeleteDelegat, UpdateDelegate, GoToDelegat {
+    
+    func goToPlace(_ name: String, _ descrip: String) {
+        for annotation in self.myMap.annotations {
+            if let title = annotation.title, title == name {
+                if let subtitle = annotation.subtitle, subtitle == descrip{
+                    self.myMap.showAnnotations([annotation], animated: true)
+                    self.title = annotation.title!
+                
+                }
+            }
+        }
+    }
+    
+    @IBAction func prevBtn(_ sender: UIButton) {
+        if(showingNow == 0)
+        {
+            showingNow = places.count
+        }
+        for annotation in self.myMap.annotations {
+            if let title = annotation.title, title == places[showingNow-1].name {
+                if let subtitle = annotation.subtitle, subtitle == places[showingNow-1].descrip{
+                    self.myMap.showAnnotations([annotation], animated: true)
+                    self.title = annotation.title!
+                }
+            }
+        }
+        showingNow = showingNow-1
+    }
+    
+    @IBAction func nextBtn(_ sender: UIButton) {
+        if(showingNow == places.count-1)
+        {
+            showingNow = -1
+        }
+        for annotation in self.myMap.annotations {
+            if let title = annotation.title, title == places[showingNow+1].name {
+                if let subtitle = annotation.subtitle, subtitle == places[showingNow+1].descrip{
+                    self.myMap.showAnnotations([annotation], animated: true)
+                    self.title = annotation.title!
+                }
+            }
+        }
+        showingNow = showingNow+1
+    }
+    func updatePlace() {
+        self.myMap.removeAnnotations(self.myMap.annotations)
+        loadMap()
+    }
+    
+    func deletePlace(_ name: String, _ descrip: String) {
+        for annotation in self.myMap.annotations {
+            if let title = annotation.title, title == name {
+                if let subtitle = annotation.subtitle, subtitle == descrip{
+                    self.myMap.removeAnnotation(annotation)
+                }
+            }
+        }
+    }
     
     var mapType:[Int: MKMapType] = [0: .hybrid, 1: .standard,2: .satellite]
     @IBOutlet weak var myMap: MKMapView!
@@ -18,14 +78,51 @@ class ViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         myMap.mapType = .standard
         myMap.delegate = self
-        myMap.register(
-            ArtworkMarkerView.self,
-            forAnnotationViewWithReuseIdentifier:
-            MKMapViewDefaultAnnotationViewReuseIdentifier)
         loadMap()
-       
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is MKPointAnnotation else { return nil }
+        
+        let identifier = "Annotation"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView!.canShowCallout = true
+            //button
+            let rightButton = UIButton(type: .detailDisclosure)
+            annotationView!.rightCalloutAccessoryView = rightButton
+            
+        } else {
+            annotationView!.annotation = annotation
+        }
+        
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            self.performSegue(withIdentifier: "toEdit", sender: view)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toEdit" )
+        {
+            let destination = segue.destination as! EditVC
+            destination.name = (sender as! MKAnnotationView).annotation!.title!
+            destination.descrip = (sender as! MKAnnotationView).annotation!.subtitle!
+            destination.updateDelegate = self
+            
+        }
+        else   if segue.identifier == "toPlacesTVC"
+        {
+            let destination = segue.destination as! PlacesTableVC
+            destination.deleteDelegate = self
+            destination.goToDelegate = self
+        }
+    }
     
     @IBAction func segmentSelected(_ sender: UISegmentedControl) {
         myMap.mapType = mapType[sender.selectedSegmentIndex] ?? .standard
@@ -56,7 +153,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
             annotation.title = firstTextField.text
             annotation.subtitle = secondTextField.text
             annotation.coordinate = coordinate
-        
+            
             self?.myMap.addAnnotation(annotation)
             
             
@@ -70,7 +167,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         self.present(alertController, animated: true, completion: nil)
     }
     func loadMap(){
-       places = loadPlaces()
+        places = loadPlaces()
         for place in places{
             let annotation = MKPointAnnotation()
             annotation.title = place.name
@@ -78,6 +175,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
             annotation.coordinate = CLLocationCoordinate2D(latitude: place.latitude,longitude:place.longitude)
             self.myMap.addAnnotation(annotation)
         }
+        self.myMap.showAnnotations(self.myMap.annotations, animated: true)
     }
     func loadPlaces()->[Place]{
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
@@ -89,7 +187,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         }
         return places
     }
-   
+    
     func saveToCoreData(_ name: String, _ description: String, _ coordinate: CLLocationCoordinate2D){
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
             let context = appDelegate.persistentContainer.viewContext
@@ -121,23 +219,5 @@ class ViewController: UIViewController, MKMapViewDelegate {
         }
     }
 }
-class ArtworkMarkerView: MKMarkerAnnotationView {
-    override var annotation: MKAnnotation? {
-        willSet {
-            // 1
-            guard let place = newValue as? Place else {
-                return
-            }
-            canShowCallout = true
-            calloutOffset = CGPoint(x: -5, y: 5)
-            rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            
-            // 2
-            markerTintColor = .cyan
-            if let letter = place.name?.first {
-                glyphText = String(letter)
-            }
-        }
-    }
-}
+
 
