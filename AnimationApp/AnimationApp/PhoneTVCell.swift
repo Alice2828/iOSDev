@@ -10,29 +10,35 @@ import UIKit
 
 class PhoneTVCell: UITableViewCell {
     
+    @IBOutlet weak var flippedSubtitle: UILabel!
+    @IBOutlet weak var flippedTitle: UILabel!
     @IBOutlet weak var normalView: UIView!
     @IBOutlet weak var flippedView: UIView!
     @IBOutlet weak var normalTitle: UILabel!
-    @IBOutlet weak var conentView: UIView!
+    
+    @IBOutlet weak var hideBtn: UIButton!
     @IBOutlet weak var normalSubtitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        (self.accessoryView as! UIButton).addTarget(self, action: #selector (self.accessoryButtonTapped), for: .touchUpInside)
         
     }
-    let options: UIView.AnimationOptions = [.transitionFlipFromRight]
-
-    @objc func accessoryButtonTapped(sender:UIButton) {
-        UIView.animate(withDuration:1, delay: 1, options:options, animations: {
-            self.contentView.insertSubview(self.flippedView, at: 0)
-        }, completion: nil)
-        
+    @IBAction func hide(_ sender: UIButton) {
+    
+        UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseOut, animations: {
+            self.flippedView.transform = CGAffineTransform(translationX: self.flippedView.bounds.width, y: 0)
+            self.flippedView.alpha = 0
+            
+        }, completion: {_ in
+            self.contentView.insertSubview(self.normalView, aboveSubview: self.flippedView)
+            self.flippedView.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.flippedView.alpha = 1
+            self.accessoryType = .detailButton
+        })
+       
     }
-   
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        
     }
     
 }
