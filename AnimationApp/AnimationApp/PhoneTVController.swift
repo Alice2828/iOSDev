@@ -46,13 +46,14 @@ class PhoneTVController: UITableViewController {
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! PhoneTVCell
         cell.accessoryType = .none
+        cell.layer.backgroundColor = cell.flippedView.layer.backgroundColor
         UIView.transition(with: cell.contentView,
                           duration: 0.6,
                           options: .transitionFlipFromTop,
                           animations:  {
                             cell.contentView.insertSubview(cell.flippedView, aboveSubview: cell.normalView)
         },
-                          completion: nil)
+                          completion:nil)
     }
     /*
      // Override to support conditional editing of the table view.

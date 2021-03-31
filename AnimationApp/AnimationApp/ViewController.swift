@@ -21,10 +21,14 @@ class ViewController: UIViewController {
     var yPosition2: CGFloat?
     override func viewDidLoad() {
         super.viewDidLoad()
+        nextBtn.layer.cornerRadius = 5
+        nextBtn.layer.borderWidth = 1
+        nextBtn.layer.borderColor = UIColor.white.cgColor
         xPosStart1 = field1.center.x
         xPosStart2 = field2.center.x
         xPosition1 = field1.bounds.width
         xPosition2 = field2.bounds.width
+        
         yPosition1 = field1.center.y
         yPosition2 = field2.center.y
         let options: UIView.AnimationOptions = [.curveEaseOut]
@@ -37,17 +41,18 @@ class ViewController: UIViewController {
             self.nextBtn.alpha = 1
         }, completion: nil)
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "mySegue"){
-            let options: UIView.AnimationOptions = [.curveEaseOut]
-            UIView.animate(withDuration:1, delay: 0, options: options, animations: {
-                self.field1.center = CGPoint(x: self.xPosStart1!,y:self.yPosition1!)
-                self.field2.center = CGPoint(x: self.xPosStart1!,y:self.yPosition2!)
-            }, completion: {_ in
-                self.field1.center = CGPoint(x: self.xPosition1!,y:self.yPosition1!)
-                self.field2.center = CGPoint(x: self.xPosition2!,y:self.yPosition2!)
-            })
-        }
+    
+    @IBAction func nextPressed(_ sender: UIButton) {
+        let options: UIView.AnimationOptions = [.curveEaseOut]
+        
+        UIView.animate(withDuration:2, delay: 0, options: options, animations: {
+            self.field1.center = CGPoint(x: self.xPosStart1!,y: self.field1.center.y)
+            self.field2.center = CGPoint(x: self.xPosStart2!+self.xPosition2!,y: self.field2.center.y)
+            
+        }, completion: {_ in
+            self.performSegue(withIdentifier: "mySegue", sender: nil)
+        })
+        
     }
 }
 

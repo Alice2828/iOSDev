@@ -26,12 +26,14 @@ class PhoneTVCell: UITableViewCell {
     
         UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseOut, animations: {
             self.flippedView.transform = CGAffineTransform(translationX: self.flippedView.bounds.width, y: 0)
+            
             self.flippedView.alpha = 0
             
         }, completion: {_ in
             self.contentView.insertSubview(self.normalView, aboveSubview: self.flippedView)
             self.flippedView.transform = CGAffineTransform(translationX: 0, y: 0)
             self.flippedView.alpha = 1
+             self.layer.backgroundColor = self.normalView.layer.backgroundColor
             self.accessoryType = .detailButton
         })
        

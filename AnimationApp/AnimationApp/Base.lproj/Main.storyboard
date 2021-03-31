@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lkp-IL-ajy">
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lkp-IL-ajy">
                                 <rect key="frame" x="-350" y="165" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="QTR-qG-Vwc"/>
@@ -26,7 +26,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ySD-P3-VKb">
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ySD-P3-VKb">
                                 <rect key="frame" x="400" y="249" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="zVN-Mk-0uV"/>
@@ -40,14 +40,16 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hwu-Yg-eCq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Next"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <segue destination="Omt-R1-NEP" kind="custom" identifier="mySegue" customClass="ZoomingSegue" customModule="AnimationApp" customModuleProvider="target" id="xXT-8Z-T7b"/>
+                                    <action selector="nextPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zTZ-67-Is9"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.79221368952938853" blue="0.72258913865037955" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.30237581746478903" blue="0.25853631821185574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ySD-P3-VKb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="4Su-7Q-rPh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7p8-XB-OAy" secondAttribute="trailing" constant="165" id="OKV-Vd-CSk"/>
@@ -66,6 +68,7 @@
                         <outlet property="field1" destination="lkp-IL-ajy" id="Qat-Nk-uiY"/>
                         <outlet property="field2" destination="ySD-P3-VKb" id="4ka-A7-cdb"/>
                         <outlet property="nextBtn" destination="7p8-XB-OAy" id="FnH-ts-rKe"/>
+                        <segue destination="Omt-R1-NEP" kind="custom" identifier="mySegue" customClass="ZoomingSegue" customModule="AnimationApp" customModuleProvider="target" id="Lpf-Dr-Ojd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
