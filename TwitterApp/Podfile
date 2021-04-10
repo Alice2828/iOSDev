@@ -7,5 +7,6 @@ target 'TwitterApp' do
 
   # Pods for TwitterApp
   pod 'Firebase'  
-  pod 'FirebaseAuth' 
+  pod 'FirebaseAuth'
+  pod 'FirebaseDatabase'
 end
